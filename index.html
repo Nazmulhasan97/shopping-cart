@@ -23,13 +23,13 @@
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
 
-                     <div class="col-md-5 center-item">
+                     <div  class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input  id="valueInput" type="text"  class="form-control text-center" value="1" >
-                           <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input  id="phoneValue" type="text"  class="form-control text-center" value="1" >
+                           <button id="phoneBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="totalPhonePrice">1219</span></h5> 
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -44,11 +44,11 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="caseValue" type="text" class="form-control text-center" value="1">
+                           <button id="caseBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="totalCasePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -80,18 +80,58 @@
 
 
    <script>
-      const plusBtn = document.getElementById('plusBtn');
-         plusBtn.addEventListener('click', function(){
-           const valueInput  = document.getElementById('valueInput').value;
-           const valueNumber = parseFloat(valueInput);
+      const phoneBtn = document.getElementById('phoneBtn');
+         phoneBtn.addEventListener('click', function(){
+           const phonePrice =inputValue('phoneValue');
+   
+           updateInput('phoneValue' , phonePrice);
 
 
-           const totalValue = valueNumber + 1;
-           document.getElementById('valueInput').value = totalValue;
+           const totalPhonePrice = document.getElementById('totalPhonePrice').innerText
+           const priceNumber = parseFloat(totalPhonePrice);
            
+           const finalPrice = priceNumber +1219;
+           document.getElementById('totalPhonePrice').innerText = finalPrice;
+
+         
+         })
+
+         const caseBtn = document.getElementById('caseBtn');
+         caseBtn.addEventListener('click' , function(){
+
+            const casePrice = inputValue('caseValue');
+
+            updateInput('caseValue' , casePrice)
+
+            const totalCasePrice = document.getElementById('totalCasePrice').innerText
+           const priceNumber = parseFloat(totalCasePrice);
+           
+           const finalCasePrice = priceNumber +59;
+           document.getElementById('totalCasePrice').innerText = finalCasePrice;
+
 
          })
 
+
+
+
+
+         function inputValue(id){
+            const value = document.getElementById(id).value;
+            const valueInput = parseFloat(value);
+            return valueInput;
+
+         }
+         function updateInput ( id , productPrice){
+            const latest = document.getElementById(id).value;
+            const currentNumber = parseFloat(latest);
+            
+            const Price = currentNumber + 1 ;
+            document.getElementById(id).value = Price;
+         }
+
+
+      
    </script>
 </body>
 
