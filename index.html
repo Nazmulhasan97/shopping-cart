@@ -13,7 +13,7 @@
 <body>
 
    <section>
-      <div class="container">
+      <div id="mainContain" class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
@@ -26,8 +26,8 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input  id="valueInput" type="text"  class="form-control text-center" value="1" >
+                           <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -77,6 +77,22 @@
          </div>
       </div>
    </section>
+
+
+   <script>
+      const plusBtn = document.getElementById('plusBtn');
+         plusBtn.addEventListener('click', function(){
+           const valueInput  = document.getElementById('valueInput').value;
+           const valueNumber = parseFloat(valueInput);
+
+
+           const totalValue = valueNumber + 1;
+           document.getElementById('valueInput').value = totalValue;
+           
+
+         })
+
+   </script>
 </body>
 
 </html>
