@@ -58,13 +58,13 @@
                   <div class="row">
 
                      <div class="col-md-8">
-                        <h5>Subtotal: </h5>
-                        <h5>Tax:</h5>
+                        <h5>Subtotal:</h5>
+                        <h5><span id="taxPrice">Tax:</span></h5>
                         <h5>Total:</h5>
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subTotalPrice">1,278</span></h5>
                         <h5>$0</h5>
                         <h5>$1,278</h5>
                      </div>
@@ -92,6 +92,13 @@
            
            const finalPrice = priceNumber +1219;
            document.getElementById('totalPhonePrice').innerText = finalPrice;
+
+
+           const subTotalValue = document.getElementById('subTotalPrice').innerText;
+           subTotalNumber = parseFloat(subTotalValue);
+           const SubTotal = finalPrice + finalCasePrice;
+           const subTotalData = SubTotal + subTotalNumber;
+           document.getElementById('subTotalPrice').innerText = subTotalData;
 
          
          })
